@@ -1,0 +1,18 @@
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+/home/deepak/.rvm/rubies/ruby-2.6.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20231221-88360-1epux4t sitelibdir\=./.gem.20231221-88360-1epux4t clean
+
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20231221-88360-1epux4t sitelibdir\=./.gem.20231221-88360-1epux4t
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20231221-88360-1epux4t sitelibdir\=./.gem.20231221-88360-1epux4t install
+/usr/bin/install -m 0755 websocket_mask.so ./.gem.20231221-88360-1epux4t
+
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20231221-88360-1epux4t sitelibdir\=./.gem.20231221-88360-1epux4t clean

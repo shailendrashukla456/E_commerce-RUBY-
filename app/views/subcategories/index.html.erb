@@ -1,0 +1,33 @@
+
+
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Subcategories for <%= @category.category_name %></h1>
+
+  <div class="row">
+    <% if user_signed_in? %>
+      <% @subcategories.each do |subcategory| %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <%= image_tag(subcategory.picture.url, class: "card-img-top", height: "200", alt: subcategory.subcategory_name) if subcategory.picture.present? %>
+            <div class="card-body">
+              <div style="text-align: center;">
+                <h5 class="card-title font-weight-bold"><%= subcategory.subcategory_name %></h5>
+               <p class="card-text font-weight-bold">Price: <%= number_to_currency(subcategory.price, unit: '₹') %></p>
+                <%= link_to 'View Details', category_subcategory_path(subcategory.category, subcategory) %>
+                <%= button_to 'Buy Now', new_order_category_subcategory_path(subcategory.category, subcategory), method: :get %>
+                
+                </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="col-md-12 text-center">
+        <p class="font-weight-bold">Please sign in to view subcategories.</p>
+        <%= link_to 'Sign In', new_user_session_path, class: "btn btn-primary mr-2" %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-secondary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

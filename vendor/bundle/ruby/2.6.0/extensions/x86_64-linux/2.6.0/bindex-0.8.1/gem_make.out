@@ -1,0 +1,18 @@
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/home/deepak/.rvm/rubies/ruby-2.6.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20231221-88360-ttfxbl sitelibdir\=./.gem.20231221-88360-ttfxbl clean
+
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20231221-88360-ttfxbl sitelibdir\=./.gem.20231221-88360-ttfxbl
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20231221-88360-ttfxbl sitelibdir\=./.gem.20231221-88360-ttfxbl install
+/usr/bin/install -m 0755 cruby.so ./.gem.20231221-88360-ttfxbl/skiptrace/internal
+
+current directory: /home/deepak/Desktop/work/E_commerce/Ecommerce/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20231221-88360-ttfxbl sitelibdir\=./.gem.20231221-88360-ttfxbl clean

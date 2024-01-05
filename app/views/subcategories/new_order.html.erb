@@ -1,0 +1,23 @@
+<div style="text-align: center;">
+<h1>Product Order for <br><br>
+<%= image_tag asset_path(@subcategories.picture), height: "100px", width: "100px" %>
+<br>
+<%= @subcategories.subcategory_name %></h1>
+
+<%= form_tag create_order_category_subcategory_path(@subcategories), method: :post do %>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"
+          data-key="<%= 'rzp_test_erxA40Dbls3shH' %>"
+          data-amount="<%= @subcategories.price*100 %>"
+          data-name="<%= @subcategories.subcategory_name %>"
+          data-description="Order for <%= @subcategories.description %>"
+          data-prefill.name="John Doe"
+          data-prefill.email="shailendrashukla456@gmail.com"
+          data-prefill.contact="8103135273"
+          data-currency="INR">
+  </script>
+  <input type="hidden" value="<%= @order_id %>" name="razorpay_order_id">
+  <input type="hidden" value="<%= @payment_id %>" name="razorpay_payment_id">
+  
+<% end %>
+</div>
+
