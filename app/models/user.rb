@@ -19,5 +19,6 @@ class User < ApplicationRecord
         end
 
         has_many :orders
+        has_many :add_cards
       
 end

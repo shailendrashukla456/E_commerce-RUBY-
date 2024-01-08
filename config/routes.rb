@@ -9,19 +9,19 @@ Rails.application.routes.draw do
     
   }
   root 'categories#index'
-  
+  resources :add_cards
   resources :profile
-  resources :orders do 
-      member do
-        get 'new_order'
-        post 'create_order'
-      end
-    end
+
+  resources :orders 
+  
+  resources :add_cards 
+
   resources :categories do
     resources :subcategories do
       member do
         get 'new_order'
         post 'create_order'
+        get 'add_card'
       end
     end
   end

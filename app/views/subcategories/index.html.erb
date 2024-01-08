@@ -44,6 +44,7 @@ body {
     /* Add any other styles you want for the hover effect */
   }
 
+
 </style>
 
 <br>
@@ -92,8 +93,8 @@ body {
                            <div style="display: flex; justify-content: center; gap: 20px;">
                <%= link_to 'Buy Now', new_order_category_subcategory_path(subcategory.category, subcategory), method: :get, style: 'background-color: green; color: white; padding: 8px 16px; border-radius: 5px;', class: 'custom-link' %>
                <%= link_to 'View Details', category_subcategory_path(subcategory.category, subcategory), class: 'custom-link' %>
-
-
+               
+               <%= link_to 'Add Card', add_card_category_subcategory_path(subcategory.category, subcategory),  style: 'background-color: #F6D776; color: white; padding: 8px 16px; border-radius: 5px;' %>
                </div>
 
                 </div>

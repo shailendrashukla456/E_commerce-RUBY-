@@ -1,0 +1,43 @@
+<!-- app/views/orders/index.html.erb -->
+
+<style>
+  .center-text {
+    text-align: center;
+    padding: 20px; /* Adjust the padding as needed */
+  }
+</style>
+
+<div class="container mt-4">
+  <h1 class="text-center">All Item </h1>
+
+  <% if @add_cards.any? %>
+    <table class="table table-bordered table-striped mt-4">
+      <thead>
+        <tr>
+
+          <th class="center-text">Email</th>
+          <th class="center-text">Product</th>
+          <th class="center-text">Price</th>
+          <th class="center-text">Image</th>
+          <th class="center-text">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @add_cards.each do |card| %>
+          <tr>
+
+            <td class="center-text"><%= card.user.email %></td>  
+            <td class="center-text"><%= card.subcategory.subcategory_name %></td>
+            <td class="center-text"><%= card.subcategory.price %></td>
+            <td class="center-text">
+              <img src="<%= card.subcategory.picture %>" alt="Subcategory Image" class="img-fluid" style="max-width: 150px; max-height: 100px;">
+            </td>
+            <td class="text-center">  <%= button_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-rounded' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="center-text mt-4">card not found.</p>
+  <% end %>
+</div>

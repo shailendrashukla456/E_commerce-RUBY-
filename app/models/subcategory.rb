@@ -5,4 +5,5 @@ class Subcategory < ApplicationRecord
 
 
   has_many :orders
+  has_many :add_cards
 end
