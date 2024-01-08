@@ -1,0 +1,70 @@
+#title_bar {
+  @include section-header;
+
+  @include clearfix;
+
+  box-sizing: border-box;
+
+  @include no-shadow;
+
+  display: table;
+  background: $skinHeaderBck;
+  text-shadow: none;
+  border: none;
+  padding: 15px 30px;
+  width: 100%;
+  position: relative;
+  border-bottom: 4px solid $skinActiveColor;
+  border-top: 1px solid $skinActiveColor;
+  margin: 0;
+  z-index: 800;
+
+  #titlebar_left, #titlebar_right {
+    height: 50px;
+    vertical-align: middle;
+    display: table-cell;
+  }
+
+  #titlebar_right {
+    text-align: right;
+    min-width: 190px;
+  }
+
+  h2 {
+    color: $skinHeaderTextColor;
+    margin: 0;
+    padding: 0;
+    font-size: 2.6em;
+    line-height: 100%;
+    font-weight: $title-bar-font-weight;
+  }
+
+  .action_items {
+    a, span.action_item {
+      & > a, & > .dropdown_menu > a {
+        @include rounded(0);
+
+        background: $skinActiveColor;
+        color: #fff;
+
+        @include no-shadow;
+
+        text-shadow: none;
+        border: none;
+        padding: 17px;
+        font-size: 14px;
+
+        span.icon {
+          vertical-align: bottom;
+          margin-right: 4px;
+        }
+
+        margin: 0px;
+
+        &:hover {
+          @include icon-color(#000);
+        }
+      }
+    }
+  }
+}

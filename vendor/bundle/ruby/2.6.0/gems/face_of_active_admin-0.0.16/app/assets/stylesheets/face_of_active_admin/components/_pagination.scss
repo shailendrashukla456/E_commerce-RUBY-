@@ -1,0 +1,70 @@
+.paginated_collection_contents {
+  clear: both;
+}
+
+.pagination {
+  float: right;
+  font-size: 0.9em;
+  margin-left: 10px;
+  margin-top: -2px;
+  padding: 5px 7px;
+
+  a, span.page.current {
+    transition: $link_transition_dutarion;
+    font-family: $skinFontFamily;
+
+    //  border: 1px solid #d3d8dc;
+    background: $main-background-color;
+
+    @include no-shadow;
+
+    text-shadow: none;
+    font-size: 1.1em;
+    font-weight: normal;
+    padding: 5px 7px;
+    margin-right: 1px;
+  }
+
+  span.page.current, span.page.current:hover {
+    background: $skinActiveColor;
+    color: #fff;
+  }
+
+  span.page.current {
+    font-weight: 600;
+
+    &:not(.disabled):not(.current):hover > a {
+      background: lighten($skinActiveColor, 20%);
+    }
+  }
+
+  a:not(.disabled):hover {
+    background: lighten($skinActiveColor, 20%);
+  }
+
+  .page.gap {
+    display: none;
+  }
+}
+
+.pagination_information {
+  float: right;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: $skinTextTable;
+
+  b {
+    color: #5c6469;
+  }
+}
+
+.download_links {
+  float: left;
+  color: $skinTextTable;
+  font-size: 12px;
+
+  a {
+    color: $skinActiveColor;
+    font-weight: bold;
+  }
+}

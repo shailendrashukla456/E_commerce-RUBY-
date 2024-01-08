@@ -17,5 +17,7 @@ class User < ApplicationRecord
             # Additional user attributes can be set here
           end
         end
+
+        has_many :orders
       
 end

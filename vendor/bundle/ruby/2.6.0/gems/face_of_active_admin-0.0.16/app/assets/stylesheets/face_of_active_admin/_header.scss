@@ -1,0 +1,293 @@
+// ----------------------------------- Header
+#header {
+  @include header-background-gradient;
+
+  background: $page-header-background-color;
+  height: 50px;
+  width: 100%;
+  position: inherit;
+  padding: 0;
+  z-index: 900;
+  border: none;
+  text-shadow: none;
+
+  // overflow: visible;
+  // display: table;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: no-wrap;
+  align-content: center;
+
+  h1 {
+    vertical-align: middle;
+    white-space: nowrap;
+    color: $page-header-text-color;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    padding: 3px $horizontal-page-header-padding 0 $horizontal-page-header-padding;
+    font-size: 1.3em;
+    font-weight: normal;
+    line-height: 1.2;
+
+    //flex-basis: 160px;
+    align-self: stretch;
+
+    &.site_title {
+      background-color: $main-background-color;
+      background: $skinLogo;
+      padding-left: $logo-width;
+      color: $skinTextColor;
+      text-indent: -9999px;
+      width: $skinLogoWidth;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        color: darken($skinTextColor, 15%);
+      }
+    }
+
+    img {
+      display: inline-block;
+      position: relative;
+
+      //top: -2px;
+   
+    }
+  }
+
+  a, a:link {
+    color: $skinTextColor;
+  }
+
+  .header-item {
+    top: 2px;
+    position: relative;
+    height: 20px;
+  }
+
+  ul.tabs {
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    align-content: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    > li a {
+      font-size: 1.1em;
+    }
+
+    & > li {
+      display: inline-block;
+      margin-right: 2px;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      position: relative;
+
+      a {
+        text-decoration: none;
+        padding: 13px 20px;
+        margin: 0;
+        position: relative;
+
+        @include rounded(10px);
+
+        transition: $link_transition_dutarion;
+      }
+
+      &.has_nested > a {
+        //TODO !!!
+        //background-position: 93% 50%;
+        background-color: $skinActiveColor;
+
+        //background: image-url('active_admin/nested_menu_arrow.gif') no-repeat calc(100% - 7px) 50%;
+        padding-right: 20px;
+      }
+
+      &.has_nested.current > a {
+        //background: $current-menu-item-background image-url('active_admin/nested_menu_arrow_dark.gif') no-repeat calc(100% - 7px) 50%;
+        padding-right: 20px;
+      }
+
+      &:hover > a {
+        color: $skinTextActiveColor;
+        background: darken($skinActiveColor, 10%);
+
+        @include rounded(0);
+
+        margin: (-10px) 0;
+      }
+
+      &.current > a {
+        color: $skinTextActiveColor;
+        background: $skinActiveColor;
+
+        @include rounded(0);
+
+        margin: (-10px) 0;
+      }
+
+      &.has_nested:hover > a {
+        // TODO!!
+        @include rounded-top(10px);
+
+        //border-bottom: 5px solid lighten($current-menu-item-background, 10%);
+        border: none;
+
+        //background: lighten($current-menu-item-background, 10%) image-url('active_admin/nested_menu_arrow_dark.gif') no-repeat calc(100% - 7px) 50%;
+
+        z-index: 1020;
+      }
+
+      /* Hover on li, display the ul */
+      &:hover ul {
+        display: block;
+        opacity: 1;
+        z-index: 1010;
+        transition: opacity, z-index;
+      }
+
+      /* Drop down menus */
+      ul {
+        background: lighten($skinActiveColor, 20%);
+
+        //@include rounded-all(0,5px,5px,5px);
+        @include no-shadow;
+
+        @include rounded(0);
+
+        border: none;
+        position: absolute;
+        width: 180%;
+        min-width: 175px;
+        max-width: calc(100% + 100px);
+        margin-top: 5px;
+        float: left;
+
+        //display: none;
+        opacity: 0;
+        padding: 3px 3px 5px 3px;
+        list-style: none;
+        z-index: 1;
+        transform: translateZ(0);
+        transform: translateY(2em);
+        transition: opacity 1s ease 0s, z-index 0s linear 1s;
+
+        li {
+          margin: 0px;
+          padding-top: 2px;
+          padding-bottom: 2px;
+
+          a {
+            color: $header-dropdown-menu-text-color;
+            background: none;
+            display: block;
+
+            &:hover {
+              color: #fff;
+              background: lighten($skinActiveColor, 10%);
+            }
+          }
+
+          &.current {
+            a {
+              @include rounded(0);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #tabs {
+    li {
+      a {
+        padding: 3px 20px;
+      }
+    }
+  }
+
+  #utility_nav {
+    color: #aaa;
+    white-space: nowrap;
+    text-align: right;
+    background: $main-background-color;
+    margin-left: auto;
+    flex-shrink: 5;
+    position: relative;
+
+    &:before {
+      display: block;
+      content: '';
+      background: $skinActiveColor;
+      height: 3px;
+      width: 100%;
+      position: absolute;
+    }
+
+    a {
+      text-decoration: none;
+      padding: 5px 20px;
+    }
+
+    li {
+      &:hover {
+        background: $skinActiveColor;
+        transition: $link_transition_dutarion;
+
+        a::before {
+          color: lighten($skinActiveColor, 35%);
+        }
+      }
+
+      // a {
+      //   &:hover {
+      //     background: none;
+      //     color: $skinTextColor;
+      //   }
+      // }
+   
+    }
+  }
+
+  #current_user {
+    a {
+      position: relative;
+
+      &:before {
+        font-family: 'FontAwesome';
+        color: $skinActiveColor;
+        position: relative;
+        left: -7px;
+        content: "\f007";
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+#logout {
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+    position: relative;
+
+    &:before {
+      font-family: 'FontAwesome';
+      color: lighten($skinActiveColor, 20%);
+      position: relative;
+      left: -7px;
+      content: "\f08b";
+      font-size: 1.5em;
+    }
+  }
+}

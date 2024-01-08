@@ -1,0 +1,29 @@
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 15px 30px;
+  font-size: 0.8em;
+  color: $skinTextTable;
+  border-top: 1px solid #d3d8dc;
+  clear: both;
+  z-index: 10;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// -------------------------------------- Index Footer (Under Table)
+#index_footer {
+  padding-top: 5px;
+  text-align: right;
+  font-size: 0.85em;
+}
+
+.index_content {
+  clear: both;
+}

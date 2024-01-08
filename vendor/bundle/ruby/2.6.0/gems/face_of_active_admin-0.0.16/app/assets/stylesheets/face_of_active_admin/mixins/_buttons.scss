@@ -1,0 +1,71 @@
+@mixin basic-button {
+  @include rounded(0);
+
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.0em;
+  font-family: $skinFontFamily;
+  line-height: 12px;
+  margin-right: 3px;
+  padding: 7px 16px 6px;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+@mixin default-button {
+  @include basic-button;
+
+  background: $primary-color;
+
+  // @include text-shadow(#000);
+  // box-shadow: 0 1px 1px rgba(0,0,0,0.10), 0 1px 0 0px rgba(255,255,255, 0.2) inset;
+  border: solid 1px #686868;
+  color: #efefef;
+
+  &:not(.disabled) {
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+
+    &:active {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) inset, 0 1px 0 0px #FFF;
+
+      @include gradient(lighten($primary-color, 8%), darken($primary-color, 17%));
+    }
+  }
+}
+
+@mixin light-button {
+  @include basic-button;
+
+  background: $action-button-default-background;
+
+  @include border-colors(#d3d3d3, #c7c7c7, #c2c2c2);
+
+  color: $action-button-default-text;
+
+  &:not(.disabled) {
+    &:hover {
+      background: $action-button-hover-background;
+      color: $action-button-hover-text;
+    }
+
+    &:active {
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22) inset, 0 1px 0 0px #EEE;
+
+      @include border-colors(#c2c2c2, #b9b9b9, #b7b7b7);
+
+      background: $action-button-active-background;
+      color: $action-button-active-text;
+    }
+  }
+}
+
+@mixin dark-button {
+  @include default-button;
+}

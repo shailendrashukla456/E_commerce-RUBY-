@@ -1,0 +1,22 @@
+@mixin select_arrow {
+  background-image: none;
+  apperance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  // arrow type 1
+  // background: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%), linear-gradient(45deg, transparent 50%, lighten($skinActiveColor, 20%) 50%), linear-gradient(135deg, lighten($skinActiveColor, 20%) 50%, transparent 50%), linear-gradient(to right, $main-background-color, $main-background-color);
+  // background-position: calc(100% - 14px) calc(1em - 3px), calc(100% - 7px) calc(1em - 3px), calc(100% - 14px) calc(1em - 3px), calc(100% - 4px) calc(1em - 3px), 100% 0;
+  // background-size: 7px 7px, 7px 7px, 10px 10px, 10px 10px, 9999px 9999px;
+
+  //arrow type 2
+  // background: linear-gradient(135deg, transparent 50%, $main-background-color 50%), linear-gradient(135deg, transparent 50%, lighten($skinActiveColor, 20%) 50%), linear-gradient(225deg, transparent 50%, $main-background-color 50%), linear-gradient(225deg, transparent 50%, lighten($skinActiveColor, 20%) 50%), linear-gradient(to right, $main-background-color, $main-background-color);
+  // background-position: calc(100% - 9px) calc(1em - 2px), calc(100% - 10px) calc(1em - 5px), calc(100% - 22px) calc(1em - 2px), calc(100% - 19px) calc(1em - 5px), 100% 0;
+  // background-size: 10px 10px,12px 12px,10px 10px,12px 12px, 9999px 9999px;
+  background: linear-gradient(to right, lighten($skinActiveColor, 20%), lighten($skinActiveColor, 20%)), linear-gradient(to right, lighten($skinActiveColor, 20%), lighten($skinActiveColor, 20%)), linear-gradient(to right, lighten($skinActiveColor, 20%), lighten($skinActiveColor, 20%)), linear-gradient(to right, $main-background-color, $main-background-color);
+  background-position: calc(100% - 10px) calc(.5em), calc(100% - 10px) calc(1em), calc(100% - 10px) calc(1.5em), 100% 0;
+  background-size: 20px 4px,20px 4px,20px 4px,9999px 9999px;
+
+  // background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="SVG  namespace" version="1.1" width="270px" height="240px"><polygon points="5 235 135 10 265 235" fill="%23f00"/></svg>');
+  background-repeat: no-repeat;
+}

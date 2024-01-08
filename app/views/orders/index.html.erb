@@ -1,0 +1,43 @@
+<!-- app/views/orders/index.html.erb -->
+
+<style>
+  .center-text {
+    text-align: center;
+    padding: 20px; /* Adjust the padding as needed */
+  }
+</style>
+
+<div class="container mt-4">
+  <h1 class="text-center">My Order</h1>
+
+  <% if @orders.any? %>
+    <table class="table table-bordered table-striped mt-4">
+      <thead>
+        <tr>
+
+          <th class="center-text">Email</th>
+          <th class="center-text">Product</th>
+          <th class="center-text">Price</th>
+          <th class="center-text">Image</th>
+          <th class="center-text">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+
+            <td class="center-text"><%= order.user.email %></td>  
+            <td class="center-text"><%= order.subcategory.subcategory_name %></td>
+            <td class="center-text"><%= order.subcategory.price %></td>
+            <td class="center-text">
+              <img src="<%= order.subcategory.picture %>" alt="Subcategory Image" class="img-fluid" style="max-width: 150px; max-height: 100px;">
+            </td>
+            <td class="center-text"><%= link_to 'Details', order_path(order), class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="center-text mt-4">No orders found.</p>
+  <% end %>
+</div>

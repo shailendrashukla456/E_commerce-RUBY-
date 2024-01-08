@@ -1,0 +1,8 @@
+Description:
+    Generates a custom SASS file with all the variables for Active Admin Face
+
+Example:
+    rails generate face_of_active_admin:variables
+
+    This will create:
+        assets/stylesheets/face_of_active_admin/face_of_active_admin_variables.scss

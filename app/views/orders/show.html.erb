@@ -1,0 +1,10 @@
+<h1>Order Details</h1>
+
+<p><strong>Email:</strong> <%= @order.user.email %></p>
+<p><strong>Product:</strong> <%= @order.user.first_name %></p>
+<p><strong>Product:</strong> <%= @order.subcategory.subcategory_name %></p>
+<p><strong>Price:</strong> <%= @order.subcategory.price %></p>
+
+<!-- Add more details as needed -->
+
+<%= link_to 'Back to Orders', orders_path %>

@@ -1,0 +1,89 @@
+// ----------------------------------- Helper class to apply to elements to make them sections
+.section, .panel {
+  @include section;
+}
+
+// ----------------------------------- Sidebar Sections
+
+.sidebar_section {
+  @include section;
+
+  form fieldset.inputs {
+    background-color: $main-background-color;
+    border: 1px solid $secondary-color;
+  }
+}
+
+.sidebar_section.panel {
+  background: #fff;
+  border: 1px solid #d3d8dc;
+
+  @include no-shadow;
+
+  @include rounded(0);
+
+  form .buttons {
+    background: #f1f5f6;
+    margin: 25px -15px -15px;
+    padding: 10px 15px;
+  }
+
+  form fieldset {
+    margin-bottom: 0;
+  }
+
+  & > h3 {
+    background: $panelHeaderBck;
+    color: $panelHeaderTextColor;
+    border: none;
+    margin: 0;
+    padding: 8px 15px;
+
+    @include no-shadow;
+
+    @include rounded(0);
+
+    text-shadow: none;
+    font-weight: bold;
+  }
+
+  .filter_form_field {
+    label {
+      color: #95a5a6;
+      font-weight: normal;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-family: $skinFontFamily;
+      padding: 7px 0;
+    }
+  }
+}
+
+.panel {
+  // background: #fff;
+  border: 1px solid #d3d8dc;
+  position: relative;
+
+  @include no-shadow;
+
+  @include rounded(0);
+
+  > h3 {
+    background: #f0f4f5;
+    color: $panelHeaderBck;
+    padding: 8px 15px;
+
+    @include no-shadow;
+
+    @include rounded(0);
+
+    text-shadow: none;
+    font-weight: bold;
+    border-style: none none solid;
+  }
+}
+
+// Hide unworking  panel
+#status-poiska-_sidebar_section {
+  display: none;
+}

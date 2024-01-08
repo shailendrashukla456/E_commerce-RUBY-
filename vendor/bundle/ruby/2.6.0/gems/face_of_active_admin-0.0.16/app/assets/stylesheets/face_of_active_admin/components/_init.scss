@@ -1,0 +1,16 @@
+html {
+  height: 100%;
+  min-height: 100%;
+  background: $body-background-color;
+  font-family: $skinFontFamily;
+}
+
+body.active_admin {
+  background: $body-background-color;
+  font-family: $skinFontFamily;
+  padding-bottom: 80px;
+}
+
+strong, b {
+  font-weight: 600;
+}

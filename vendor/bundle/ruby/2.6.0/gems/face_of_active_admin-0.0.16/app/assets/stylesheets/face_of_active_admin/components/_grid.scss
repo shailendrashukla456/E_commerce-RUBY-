@@ -1,0 +1,57 @@
+// -------------------------------------- Index as Grid
+table.index_grid td {
+  border: none;
+  background: none;
+  padding: 0 20px 20px 0;
+  margin: 0;
+}
+
+// -------------------------------------- Columns
+.columns {
+  clear: both;
+  padding: 0;
+
+  .column {
+    float: left;
+  }
+}
+
+.width10 {
+  width: 10%;
+}
+
+.width20 {
+  width: 20%;
+}
+
+.width30 {
+  width: 30%;
+}
+
+.width40 {
+  width: 40%;
+}
+
+.width50 {
+  width: 50%;
+}
+
+.width60 {
+  width: 60%;
+}
+
+.width70 {
+  width: 70%;
+}
+
+.width80 {
+  width: 80%;
+}
+
+.width90 {
+  width: 90%;
+}
+
+.width100 {
+  width: 100%;
+}

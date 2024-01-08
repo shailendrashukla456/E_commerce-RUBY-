@@ -1,0 +1,601 @@
+// -------------------------------------- Active Admin Forms
+form {
+  /* Reset margins & Padding */
+  ul, ol, li, fieldset, legend, input, textarea, select, p {
+    margin: 0;
+    padding: 0;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  fieldset {
+    border: 0;
+    padding: 10px 0;
+    margin-bottom: 20px;
+
+    &.inputs {
+      fieldset.inputs {
+        background: #fff;
+        border: 1px solid #d3d8dc;
+        position: relative;
+        padding-top: 50px;
+
+        @include no-shadow;
+
+        @include rounded(0);
+
+        legend {
+          border-bottom: 1px solid #d3d8dc;
+          position: absolute;
+          top: 0;
+
+          span {
+            background: #f0f4f5;
+            color: #5E6469;
+            border: none;
+            margin: 0;
+            padding: 8px 15px;
+
+            @include no-shadow;
+
+            @include rounded(0);
+
+            text-shadow: none;
+            font-weight: bold;
+          }
+        }
+
+        ol > li {
+          label {
+            padding-top: 7px;
+            text-transform: uppercase;
+          }
+
+          &.boolean label {
+            padding-top: 0px;
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+
+    legend {
+      width: 100%;
+
+      span {
+        display: block;
+
+        @include section-header;
+      }
+    }
+
+    ol > li {
+      padding: 10px;
+
+      label {
+        display: block;
+        width: 20%;
+        float: left;
+        font-size: 1.0em;
+        font-weight: bold;
+        color: $form-label-color;
+
+        abbr {
+          border: none;
+          color: $required-field-marker-color;
+        }
+      }
+    }
+
+    ol > li.has_many_container {
+      padding: 20px 10px;
+
+      h3 {
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .has_many_fields {
+        margin: 10px 0;
+      }
+    }
+
+    ol > li > li label {
+      line-height: 100%;
+      padding-top: 0;
+
+      input {
+        line-height: 100%;
+        vertical-align: middle;
+        margin-top: -0.1em;
+      }
+    }
+  }
+
+  // relative so the absolutely-positioned handle will fit
+  .has_many_fields {
+    position: relative;
+  }
+
+  .has_many_container {
+    .handle {
+      position: absolute;
+
+      @include icon-size(3em);
+
+      top: calc(50% - 3em / 2);
+      right: 2px;
+      padding: 0;
+      cursor: move;
+    }
+
+    // If a sortable is nested in a sortable, give the parent handle space!
+    &.ui-sortable .has_many_container {
+      margin-right: 2em;
+    }
+  }
+
+  .ui-sortable {
+    // give the handle space!
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=url], input[type=tel], textarea {
+      width: calc(80% - #{$text-input-total-padding} - 2em - 1px);
+    }
+  }
+
+  /* Nested Fieldsets and Legends */
+
+  fieldset > ol > li {
+    fieldset {
+      position: relative;
+      padding: 0;
+      margin-bottom: 0;
+
+      legend {
+        position: absolute;
+        width: 95%;
+        padding-top: 0.1em;
+        left: 0px;
+        font-size: 100%;
+        font-weight: normal;
+
+        span {
+          position: absolute;
+        }
+
+        &.label label {
+          position: absolute;
+        }
+      }
+
+      &:not(.has_many_fields) ol {
+        float: left;
+        width: 74%;
+        margin: 0;
+        padding: 0 0 0 20%;
+
+        li {
+          padding: 0;
+          border: 0;
+        }
+      }
+
+      &.has_many_fields ol {
+        float: left;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      ol li {
+        clear: both;
+
+        select {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
+  /* Text Fields */
+  input[type=text], input[type=password], input[type=email], input[type=number], input[type=url], input[type=tel], textarea {
+    width: calc(80% - #{$text-input-total-padding});
+    border: $border-width solid #c9d0d6;
+
+    @include rounded(0);
+
+    font-size: 0.95em;
+    font-family: $skinFontFamily;
+    outline: none;
+    padding: 5px 10px;
+
+    &:focus {
+      border: $border-width solid #99a2aa;
+
+      @include shadow(0, 0, 4px, #99a2aa);
+    }
+  }
+
+  // Selects
+  select {
+    width: 80%;
+    padding-left: 5px;
+    line-height: 1;
+    border: 1px solid #5e6469;
+    border-radius: 5px;
+    height: 30px;
+
+    @include select_arrow;
+  }
+
+  select[multiple] {
+    height: 200px;
+  }
+
+  fieldset > ol > li {
+    /* Hints */
+    p.inline-hints {
+      font-size: 0.95em;
+      font-style: italic;
+      color: #666;
+      margin: 0.5em 0 0 20%;
+    }
+
+    /* Date and Time Fields */
+    &.date, &.time, &.datetime, &.date_select {
+      fieldset ol li {
+        float: left;
+        width: auto;
+        margin: 0 0.5em 0 0;
+
+        label {
+          display: none;
+        }
+
+        input {
+          display: inline;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+    /* Check Boxes or Radio fields */
+    &.check_boxes, &.radio {
+      fieldset ol {
+        margin-bottom: -0.6em;
+
+        li {
+          margin: 0.1em 0 0.5em 0;
+
+          label {
+            float: none;
+            width: 100%;
+
+            input {
+              margin-right: 0.2em;
+            }
+          }
+        }
+      }
+    }
+
+    /* Boolean Field */
+    &.boolean {
+      height: 1.1em;
+
+      label {
+        width: 80%;
+        padding-left: 20%;
+        padding-right: 10px;
+        text-transform: none !important;
+        font-weight: normal;
+
+        input {
+          margin: 0 0.5em 0 0.2em;
+        }
+      }
+    }
+
+    /* Hidden fields */
+    &.hidden {
+      padding: 0;
+    }
+
+    /* Errors */
+    p.inline-errors {
+      color: $error-color;
+      font-weight: bold;
+      margin: 0.3em 0 0 20%;
+    }
+
+    ul.errors {
+      color: $error-color;
+      margin: 0.5em 0 0 20%;
+      list-style: square;
+
+      li {
+        padding: 0;
+        border: none;
+        display: list-item;
+      }
+    }
+
+    &.error {
+      input[type=text], input[type=password], input[type=email], input[type=number], input[type=url], input[type=tel], textarea {
+        border: $border-width solid $error-color;
+      }
+    }
+  }
+
+  /* semantic_errors */
+  ul.errors {
+    background: lighten($error-color, 60%);
+
+    @include rounded(4px);
+
+    color: $error-color;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px;
+    list-style: square;
+
+    li {
+      margin-left: 15px;
+      padding: 0;
+      border: none;
+      display: list-item;
+    }
+  }
+
+  /* Datetime selects*/
+
+  li.datetime_select {
+    li.fragment {
+      display: inline-block;
+      margin-right: 1em;
+
+      label {
+        display: inline-block;
+        margin-right: 1em;
+        width: auto;
+        top: 12px;
+        position: relative;
+      }
+
+      select {
+        width: 6rem;
+      }
+    }
+  }
+
+  /* nested datetime selects*/
+
+  li.has_many_container {
+    li.datetime_select {
+      fieldset.fragments {
+        ol.fragments-group {
+          margin-left: 20%;
+
+          li.fragment > label {
+            top: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  /* nested radio*/
+  fieldset.has_many_fields {
+    fieldset.choices {
+      ol.choices-group {
+        margin-left: 20%;
+      }
+    }
+  }
+
+  /* Buttons */
+
+  input[type=submit] {
+    @include dark-button;
+
+    cursor: pointer;
+    transition: $link_transition_dutarion;
+  }
+
+  .buttons, .actions {
+    margin-top: 15px;
+
+    input[type=submit] {
+      margin-right: 10px;
+    }
+  }
+
+  fieldset.buttons li, fieldset.actions li {
+    float: left;
+    padding: 0;
+
+    &.cancel {
+      a {
+        @include light-button;
+
+        @include icon(#777, 9px);
+
+        background: $main-background-color;
+        transition: $link_transition_dutarion;
+
+        @include no-shadow;
+
+        @include rounded(0);
+
+        text-shadow: none;
+        padding: 10px 20px;
+        color: #95a5a6;
+
+        &:hover {
+          background: lighten($body-background-color, 5%) !important;
+        }
+      }
+    }
+  }
+
+  .filter_form a.clear_filters_btn {
+    background: $body-background-color;
+
+    @include no-shadow;
+
+    @include rounded(0);
+
+    text-shadow: none;
+    padding: 11px 20px;
+    color: #95a5a6;
+
+    &:hover {
+      background: lighten($body-background-color, 5%) !important;
+    }
+  }
+
+  input[type=submit],
+  a.button,
+  a:link.button,
+  a:visited.button {
+    @include no-shadow;
+
+    @include rounded(0);
+
+    background: $skinActiveColor;
+    color: #fff;
+    border: none;
+    text-shadow: none;
+    padding: 11px 20px;
+
+    &:hover {
+      background: lighten($skinActiveColor, 10%);
+    }
+  }
+}
+
+// -------------------------------------- Sidebar Forms
+
+$sidebar-inner-content-width: $sidebar-width - $section-padding * 2;
+
+.sidebar_section {
+  label {
+    display: block;
+    text-transform: uppercase;
+    color: $form-label-color;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+
+  select {
+    width: $sidebar-inner-content-width;
+    padding-left: 5px;
+    line-height: 1;
+    border: 1px solid #5e6469;
+    border-radius: 5px;
+    height: 30px;
+
+    @include select_arrow;
+  }
+
+  input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], textarea {
+    width: $sidebar-inner-content-width - $text-input-horizontal-padding * 2;
+  }
+}
+
+// -------------------------------------- Filter Forms
+
+$filter-field-seperator-width: 12px;
+
+$side-by-side-filter-input-width: $sidebar-inner-content-width / 2 - $text-input-horizontal-padding * 2 - $filter-field-seperator-width;
+$side-by-side-filter-select-width: $sidebar-inner-content-width / 2 - $filter-field-seperator-width;
+
+$date-range-filter-input-right-padding: 27px;
+$date-range-filter-input-horizontal-padding: $date-range-filter-input-right-padding + $text-input-horizontal-padding;
+$date-range-filter-input-width: $sidebar-inner-content-width / 2 - $filter-field-seperator-width - $date-range-filter-input-horizontal-padding - 1px;
+
+form.filter_form {
+  .filter_form_field {
+    margin-bottom: 10px;
+    clear: both;
+
+    &.filter_date_range input[type=text] {
+      background-position: 100% 4px;
+    }
+
+    &.select_and_search {
+      input[type=text] {
+        margin-left: $filter-field-seperator-width + 4;
+        width: $side-by-side-filter-input-width;
+      }
+
+      select {
+        width: $side-by-side-filter-select-width;
+        padding-left: 5px;
+        line-height: 1;
+        border: 1px solid #5e6469;
+        border-radius: 5px;
+        height: 30px;
+
+        @include select_arrow;
+      }
+    }
+
+    &.filter_check_boxes {
+      label {
+        margin-bottom: 3px;
+      }
+
+      fieldset {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+      }
+
+      .check_boxes_wrapper label {
+        font-weight: normal;
+        margin-bottom: 3px;
+        text-transform: none;
+        font-size: 1.0em;
+
+        input {
+          vertical-align: baseline;
+        }
+      }
+    }
+
+    &.filter_date_range {
+      .seperator {
+        display: inline-block;
+        text-align: center;
+        width: $filter-field-seperator-width;
+      }
+
+      input[type=text] {
+        background-image: none;
+        padding-right: $date-range-filter-input-right-padding;
+        width: $date-range-filter-input-width;
+      }
+
+      label {
+        &::before {
+          font-family: 'FontAwesome';
+          color: $skinActiveColor;
+          position: relative;
+          left: -5px;
+          content: "\f073";
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+
+  a.clear_filters_btn {
+    @include light-button;
+
+    @include rounded(0);
+
+    padding: 11px 20px;
+  }
+}

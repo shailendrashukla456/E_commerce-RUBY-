@@ -1,3 +1,79 @@
+<style>
+  
+body {
+  # background-image: url('https://img.freepik.com/premium-photo/beautiful-asian-woman-with-shopping-bags-showing-red-sale-sign_8087-3999.jpg');
+  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+
+  .custom-card {
+   
+    background-color: #F6D776;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 4px;
+    text-align: center;
+    
+
+  }
+
+  .custom-card h3 {
+    color: primary;
+  }
+
+  .custom-card:hover {
+    background-color: primary;
+  }
+
+  .custom-link {
+    display: inline-block;
+    background-color: gray;
+    color: black;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  .custom-link:hover {
+    background-color: darkgray;
+    color: white;
+    /* Add any other styles you want for the hover effect */
+  }
+
+</style>
+
+<br>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <% @categories.each_with_index do |category, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <div class="container mt-2">
+          <div class="row justify-content-center">
+            <div class="col-md-12 mb-4">
+              <div class="card custom-card">
+                <div class="card-body">
+                  <h3 class="card-title"><%= link_to category.category_name, category_subcategories_path(category) %></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 
 <div class="container mt-5">
@@ -13,9 +89,13 @@
               <div style="text-align: center;">
                 <h5 class="card-title font-weight-bold"><%= subcategory.subcategory_name %></h5>
                <p class="card-text font-weight-bold">Price: <%= number_to_currency(subcategory.price, unit: '₹') %></p>
-                <%= link_to 'View Details', category_subcategory_path(subcategory.category, subcategory) %>
-                <%= button_to 'Buy Now', new_order_category_subcategory_path(subcategory.category, subcategory), method: :get %>
-                
+                           <div style="display: flex; justify-content: center; gap: 20px;">
+               <%= link_to 'Buy Now', new_order_category_subcategory_path(subcategory.category, subcategory), method: :get, style: 'background-color: green; color: white; padding: 8px 16px; border-radius: 5px;', class: 'custom-link' %>
+               <%= link_to 'View Details', category_subcategory_path(subcategory.category, subcategory), class: 'custom-link' %>
+
+
+               </div>
+
                 </div>
             </div>
           </div>
@@ -30,4 +110,7 @@
     <% end %>
   </div>
 </div>
+
+
+
 

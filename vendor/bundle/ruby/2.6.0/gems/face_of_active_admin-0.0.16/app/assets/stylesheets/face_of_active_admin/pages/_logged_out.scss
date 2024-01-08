@@ -1,0 +1,96 @@
+body.logged_out {
+  background: #e8e9ea;
+  height: 100%;
+
+  #footer {
+    display: none;
+  }
+
+  #content_wrapper {
+    width: 500px;
+    margin: 150px auto;
+
+    #active_admin_content {
+      @include shadow;
+
+      background: #fff;
+      padding: 13px 30px;
+      padding-bottom: 0;
+    }
+  }
+
+  h2 {
+    @include section-header;
+
+    @include primary-gradient;
+
+    @include text-shadow(#000);
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border: none;
+    color: #fff;
+    margin: -13px -30px 20px -30px;
+  }
+
+  #login {
+    /* Login Form */
+    form {
+      fieldset {
+        border: none;
+
+        @include no-shadow;
+
+        background: none;
+        padding: 0;
+
+        li {
+          padding: 10px 0;
+        }
+
+        input[type=text], input[type=email], input[type=password] {
+          width: 70%;
+        }
+
+        &.buttons {
+          margin-left: 20%;
+        }
+
+        margin-bottom: 0;
+      }
+    }
+
+    > h2 {
+      background: $panelHeaderBck;
+      font-family: $skinFontFamily;
+      color: #fff;
+
+      @include no-shadow;
+
+      @include rounded(0);
+
+      padding: 8px 15px;
+    }
+
+    fieldset.actions {
+      background: #f1f5f6;
+      margin: 0 -30px -17px;
+      padding: 6px 30px;
+    }
+
+    a {
+      float: right;
+      margin-top: -25px;
+    }
+  }
+
+  .flash {
+    background: #F2ECBF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    border-bottom: 1px solid #DEDE8B;
+    text-shadow: none;
+  }
+}

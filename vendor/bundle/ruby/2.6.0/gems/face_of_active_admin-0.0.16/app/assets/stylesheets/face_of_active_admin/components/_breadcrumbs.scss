@@ -1,0 +1,27 @@
+.breadcrumb {
+  display: block;
+  font-size: 0.9em;
+  font-weight: normal;
+  line-height: 1.0em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+
+  a, a:link, a:visited, a:active {
+    color: $breadcrumbs-color;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    background: $skinActiveColor;
+    padding: 5px;
+    color: $skinHeaderTextColor;
+  }
+
+  .breadcrumb_sep {
+    margin: 0 2px;
+    color: $breadcrumbs-separator-color;
+  }
+}

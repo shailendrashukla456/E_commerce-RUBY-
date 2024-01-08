@@ -1,0 +1,64 @@
+.ui-tabs-nav {
+  width: 100%;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  // Override default ul/ol
+  list-style: none;
+
+  @include clearfix;
+
+  > li {
+    float: left;
+    position: relative;
+
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+    display: inline-block;
+    min-width: 1%;
+
+    // Actual tabs (as links)
+    > a {
+      position: relative;
+      display: block;
+      padding: 10px 15px;
+      margin-right: 2px;
+      line-height: 1.5;
+      border: 1px solid transparent;
+      border-radius: 4px 4px 0 0;
+      text-align: center;
+      margin-bottom: 5px;
+      transition: $link_transition_dutarion;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: darken($skinActiveColor, 10%);
+      }
+    }
+
+    a {
+      &:active {
+        background: $skinActiveColor;
+      }
+
+      &:hover {
+        background: lighten($skinActiveColor, 20%);
+      }
+
+      &:focus {
+        background: darken($skinActiveColor, 10%);
+      }
+    }
+
+    &.ui-tabs-active > a {
+      background: $skinActiveColor;
+    }
+  }
+
+  border-bottom: 0;
+
+  > li > a > img {
+    max-width: none;
+  }
+}

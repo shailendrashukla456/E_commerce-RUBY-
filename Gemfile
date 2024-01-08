@@ -73,3 +73,5 @@ gem 'razorpay'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+gem 'arctic_admin'

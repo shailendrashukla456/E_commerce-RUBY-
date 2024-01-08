@@ -1,0 +1,305 @@
+// ----------------------------------- Tables
+
+table tr {
+  td {
+    vertical-align: top;
+  }
+}
+
+// --------- Index Tables
+
+table.index_table {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #d3d8dc;
+  border-spacing: 0;
+  background: #fff;
+
+  th {
+    @include section-header;
+
+    text-align: left;
+    background: #f1f5f6;
+    border: 1px #d3d8dc;
+    border-style: none solid solid none;
+    padding: 7px 10px;
+
+    @include no-shadow;
+
+    color: $skinTextColor;
+
+    a, a:link, a:visited {
+      color: $skinTextColor;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    &.sortable a {
+      position: relative;
+      padding-left: 20px;
+
+      &:before {
+        color: lighten($skinActiveColor, 10%);
+
+        @extend .fa;
+
+        @extend .fa-sort;
+
+        background: none;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+      }
+    }
+
+    &.sorted-asc a {
+      position: relative;
+      padding-left: 20px;
+
+      &:before {
+        font-size: 1.5em;
+        color: lighten($skinActiveColor, 10%);
+
+        @extend .fa;
+
+        @extend .fa-sort-amount-asc;
+
+        background: none;
+        position: absolute;
+        left: -5px;
+        top: -3px;
+      }
+    }
+
+    &.sorted-desc a {
+      position: relative;
+      padding-left: 20px;
+
+      &:before {
+        color: lighten($skinActiveColor, 10%);
+        font-size: 1.5em;
+
+        @extend .fa;
+
+        @extend .fa-sort-amount-desc;
+
+        background: none;
+        position: absolute;
+        left: -5px;
+        top: -3px;
+      }
+    }
+
+    &.sorted-asc, &.sorted-desc {
+      background: $title-bar-background;
+
+      // @include gradient(darken($secondary-gradient-start, 5%), darken($secondary-gradient-stop, 5%));
+   
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  tr.even td {
+    background: $table-stripe-color;
+  }
+
+  tr:hover td {
+    background-color: $table-selected-color;
+  }
+
+  tr.selected td {
+    background: $table-selected-color;
+  }
+
+  td {
+    padding: 10px $cell-horizontal-padding 8px $cell-horizontal-padding;
+    border-bottom: 1px solid #e8e8e8;
+    vertical-align: top;
+    color: $skinTextTable;
+
+    a, a:link, a:visited {
+      color: $skinTextTable;
+      display: inline-block;
+      padding: 2px 3px;
+      margin: (-2px) 0;
+      transition: $link_transition_dutarion;
+
+      &:hover {
+        color: #fff;
+        background: lighten($skinActiveColor, 10%);
+      }
+    }
+
+    a.delete_link {
+      &:hover {
+        background: darken($skinActiveColor, 10%);
+      }
+    }
+  }
+}
+
+// --------- Tables inside Panels
+
+.panel_contents table {
+  margin-top: 5px;
+
+  th {
+    padding-top: 10px;
+    background: none;
+    color: $primary-color;
+
+    @include no-shadow;
+
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+  }
+
+  tr.odd td {
+    background: darken($table-stripe-color, 3%);
+  }
+
+  tr.even td {
+    background: $table-stripe-color;
+  }
+}
+
+// -------------------------------------- Resource Attributes Table
+.attributes_table {
+  overflow: hidden;
+}
+
+.attributes_table table {
+  col.even {
+    background: $table-stripe-color;
+  }
+
+  col.odd {
+    background: darken($table-stripe-color, 3%);
+  }
+
+  th, td {
+    padding: 8px $cell-horizontal-padding 6px $cell-horizontal-padding;
+    vertical-align: top;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  th {
+    @include no-shadow;
+
+    @include no-gradient;
+
+    width: 150px;
+    font-weight: normal;
+    font-size: 1.2em;
+    padding: 10px 0 10px 10px;
+    font-family: $skinFontFamily;
+    text-transform: uppercase;
+    color: $primary-color;
+
+    @include text-shadow;
+  }
+
+  td {
+    padding: 10px 0 10px 10px;
+    font-family: $skinFontFamily;
+    color: $primary-color;
+
+    .empty {
+      color: #bbb;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    &:first-child {
+      width: 25%;
+    }
+  }
+}
+
+.sidebar_section .attributes_table th {
+  width: 50px;
+}
+
+//-----------------------default table styling
+
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid lighten($primary-color, 35%);
+
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: 6px;
+        line-height: 1.5;
+        vertical-align: top;
+
+        //  border: 1px solid lighten( $primary-color, 35%);
+     
+      }
+    }
+  }
+
+  // Bottom align for column headings
+  > thead > tr {
+    > th {
+      vertical-align: bottom;
+      border-bottom: 2px solid lighten($primary-color, 35%);
+    }
+
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+
+  > tbody > tr:hover {
+    background-color: $table-selected-color;
+  }
+
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid lighten($primary-color, 35%);
+  }
+
+  // Nesting
+  .table {
+    background-color: $main-background-color;
+  }
+}
+
+.table_actions {
+  text-align: center;
+
+  a.member_link {
+    text-decoration: none;
+
+    &:before {
+      font-size: 1.5em;
+      padding: 5px;
+    }
+  }
+}
