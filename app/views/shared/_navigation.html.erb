@@ -23,9 +23,17 @@
 
       <div class="d-flex">
       <div class="mr-2">
-      <%= link_to add_cards_path, class: 'btn btn-primary', role: 'button' do %>
-        <%= image_tag 'https://cdn-icons-png.flaticon.com/512/1972/1972381.png', alt: 'Logo', width: '50', height: '40' %> 
+         
+      <%= link_to add_cards_path, class: 'btn btn-primary', role: 'button', style: 'position: relative;' do %>
+        <%= image_tag 'https://static.thenounproject.com/png/29852-200.png', alt: 'Logo', width: '40', height: '40' %>
+        <% if user_signed_in? %>
+        <span style="position: absolute; top: 0; left: 0; color: red; padding: 5px; background-color: black; border-radius: 20%; font-weight: bold;">
+        <%= current_user.add_cards.count %>
+      </span>
+      
+        <% end %>
       <% end %>
+      
      
       </div>
       <% if user_signed_in? %>

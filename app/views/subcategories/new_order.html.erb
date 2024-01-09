@@ -4,6 +4,7 @@
 <%= image_tag asset_path(@subcategories.picture), height: "200px", width: "380px" %>
 <br>
 <%= @subcategories.subcategory_name %></h1>
+<h4>Price :<%= @subcategories.price %></h4>
 
 <%= form_tag create_order_category_subcategory_path(@subcategories), method: :post do %>
   <script src="https://checkout.razorpay.com/v1/checkout.js"

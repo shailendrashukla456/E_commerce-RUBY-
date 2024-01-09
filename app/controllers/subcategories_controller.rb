@@ -21,11 +21,11 @@ class SubcategoriesController < ApplicationController
           api_secret: 'lgTaGjfpzoJsNSEj4vpozXaI'
         )
         
-        # # Additional logic for creating an order if needed
+       
       end
     
       def create_order
-        @subcategories = Subcategory.find(params[:id]) # Ensure @subcategories is set
+        @subcategories = Subcategory.find(params[:id]) 
         @order = Order.new(subcategory_id: @subcategories.id, user_id: current_user.id)
         
         if @order.save
@@ -43,18 +43,16 @@ class SubcategoriesController < ApplicationController
 
 
       def add_card
-        @subcategories = Subcategory.find(params[:id]) # Ensure @subcategories is set
-        @order = AddCard.new(subcategory_id: @subcategories.id, user_id: current_user.id)
-        
+        @subcategories = Subcategory.find(params[:id]) 
+        @order = AddCard.new(subcategory_id: @subcategories.id, user_id: current_user.id )
         if @order.save
-
+          
           flash[:notice] = 'Card added successfully'
-          redirect_to category_subcategories_path, notice: 'Card added successfully'
+          redirect_to category_subcategories_path
         else
           render :new_order
         end
       end
-        # Your remaining code
       
  
     private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_08_065637) do
+ActiveRecord::Schema.define(version: 2024_01_09_093440) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2024_01_08_065637) do
     t.integer "subcategory_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cards_count"
     t.index ["subcategory_id"], name: "index_add_cards_on_subcategory_id"
     t.index ["user_id"], name: "index_add_cards_on_user_id"
   end
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(version: 2024_01_08_065637) do
     t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "actual_price"
     t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 

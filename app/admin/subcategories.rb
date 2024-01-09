@@ -1,5 +1,5 @@
 ActiveAdmin.register Subcategory do
-  permit_params :category_id, :subcategory_name, :description, :picture, :price
+  permit_params :category_id, :subcategory_name, :description, :picture, :actual_price, :price
 
   index do
     selectable_column
@@ -14,6 +14,7 @@ ActiveAdmin.register Subcategory do
     column :picture do |subcategory|
       image_tag(subcategory.picture.url, height: '50') if subcategory.picture.present?
     end
+    column :actual_price
     column :price
     actions
   end
@@ -24,6 +25,7 @@ ActiveAdmin.register Subcategory do
       f.input :subcategory_name
       f.input :description
       f.input :picture, as: :file, hint: (f.object.picture.present? ? image_tag(f.object.picture.url, height: '100') : content_tag(:span, 'Upload a picture'))
+      f.input :actual_price
       f.input :price
     end
     f.actions

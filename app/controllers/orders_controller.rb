@@ -25,6 +25,6 @@ class OrdersController < ApplicationController
         end
       
         def order_params
-          params.require(:order).permit(:user_id, :subcategory_id)
+          params.require(:order).permit(:user_id, :subcategory_id, cards_count)
         end
 end

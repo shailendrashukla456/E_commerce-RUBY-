@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks' 
     
   }
+ 
   root 'categories#index'
   resources :add_cards
   resources :profile
