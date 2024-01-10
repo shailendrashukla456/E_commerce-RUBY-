@@ -29,12 +29,9 @@ class SubcategoriesController < ApplicationController
         @order = Order.new(subcategory_id: @subcategories.id, user_id: current_user.id)
         
         if @order.save
-          if @subcategories.present?
-            flash[:success] = 'Order Confirm successfully'
-          else
-            flash[:success] = 'Something wen wrong'
-          end
-          redirect_to orders_path, notice: 'Order Not Confirm'
+          OrderConfirmationMailer.welcome_email(current_user).deliver_now
+
+          redirect_to orders_path, notice: 'Order Confirm successfuly'
         else
           render :new_order
         end

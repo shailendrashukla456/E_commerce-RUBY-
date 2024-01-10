@@ -41,7 +41,8 @@
         <span class="mx-2"></span>
         <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger rounded-pill" %>
       <% else %>
-        <%= button_to "Sign in", new_user_session_path, class: "btn btn-primary rounded-pill" %>
+      <%= button_to "Sign in", new_user_session_path, class: "btn btn-success rounded-pill" %>
+
       <% end %>
     </div>
     

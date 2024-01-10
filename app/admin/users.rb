@@ -1,11 +1,26 @@
-ActiveAdmin.register User, as: 'Register_User' do
+ActiveAdmin.register User, as: 'RegisteredUser' do
+  permit_params :first_name, :last_name, :email, :contact, :address
 
- 
-   permit_params :first_name, :last_name, :email, :encrypted_password, :contact, :address, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email
-  
-   actions :index, :show, :destroy
-   
-   index do
+  actions :index, :show, :destroy
+
+  scope "All", default: true do |users|
+    users
+  end
+
+  scope "Last Month" do |users|
+    users.where("created_at >= ? AND created_at <= ?", 1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
+  end
+
+  scope "Current Month" do |users|
+    users.where("created_at >= ? AND created_at <= ?", Date.today.beginning_of_month, Date.today.end_of_month)
+  end
+
+
+  scope "Today" do |users|
+    users.where("created_at >= ? AND created_at <= ?", Date.today.beginning_of_day, Date.today.end_of_day)
+  end
+
+  index do
     selectable_column
     id_column
     column :first_name
