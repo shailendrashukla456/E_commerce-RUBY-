@@ -41,9 +41,10 @@ body {
   .custom-link:hover {
     background-color: darkgray;
     color: white;
-    /* Add any other styles you want for the hover effect */
+
   }
 
+ 
 
 </style>
 
@@ -85,15 +86,13 @@ body {
       <% @subcategories.each do |subcategory| %>
         <div class="col-md-4 mb-4">
           <div class="card">
-            <%= image_tag(subcategory.picture.url, class: "card-img-top", height: "200", alt: subcategory.subcategory_name) if subcategory.picture.present? %>
+            <%= image_tag(subcategory.picture.url, class: "card-img-top", height: "1%", width: "1%" , alt: subcategory.subcategory_name) if subcategory.picture.present? %>
             <div class="card-body">
               <div style="text-align: center;">
                 <h5 class="card-title font-weight-bold"><%= subcategory.subcategory_name %></h5>
                 <p class="card-text" style="text-decoration: line-through; color: red;">
                     MRP: <%= number_to_currency(subcategory.actual_price, unit: '₹') %>
                 </p>
-
-              
                <h5 class="card-text font-weight-bold">Price: <%= number_to_currency(subcategory.price, unit: '₹') %></h5>
                            <div style="display: flex; justify-content: center; gap: 20px;">
                <%= link_to 'Buy Now', new_order_category_subcategory_path(subcategory.category, subcategory), method: :get, style: 'background-color: green; color: white; padding: 8px 16px; border-radius: 5px;', class: 'custom-link' %>

@@ -1,20 +1,18 @@
-
-<div class="container mt-5">
+<div class="container mt-5" style="background-color: #ffb3c1" >
   <h1 class="text-center mb-4">Categories</h1>
-  
+
   <div class="row justify-content-center">
     <% @categories.each do |category| %>
       <div class="col-md-3 mb-4">
-        <div class="card text-center">
+        <div class="card text-center" style="background-color: #f8f9fa;"> <!-- Set your desired background color -->
           <%= image_tag(category.picture.url, class: "card-img-top", height: "200", alt: category.category_name) if category.picture.present? %>
           <div class="card-body">
-          <br>
-            <h3 class="card-title">   <%= link_to category.category_name, category_subcategories_path(category), style: 'display: inline-block; padding: 10px 20px; border-radius: 25px; background-color: #ced4da; text-decoration: none; color: black;' %></h3>
-            
+            <h3 class="card-title">
+              <%= link_to category.category_name, category_subcategories_path(category), class: "btn btn-light btn-block" %>
+            </h3>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-

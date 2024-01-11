@@ -1,37 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary margin:10">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffb3c1; margin: 10px;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">E-Commerce</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        <%= link_to "Home", categories_path, class: 'btn btn-primary', role: 'button' %>
+        <%= link_to "Home", categories_path, class: 'btn btn-light mx-2', role: 'button' %>
         </li>
         <li class="nav-item">
-        <%= link_to "Profile", profile_index_path, class: 'btn btn-primary', role: 'button' %>
+        <%= link_to "Profile", profile_index_path, class: 'btn btn-light mx-2', role: 'button' %>
         </li>
         <li class="nav-item">
-        <%= link_to "My Order", orders_path, class: 'btn btn-primary', role: 'button' %>
-        </li>
-
-        <li class="nav-item">
-        <%= link_to "Chat", rooms_path, class: 'btn btn-primary', role: 'button' %>
+           <%= link_to "My Order", orders_path, class: 'btn btn-light mx-2', role: 'button' %>
         </li>
 
-        
-      
+
+        <li class="nav-item">
+        <%= link_to "Chat", rooms_path, class: 'btn btn-light mx-2', role: 'button' %>
+        </li>
+       
+       
+       
+       
+        <button type="button", rooms_path, onclick="openChatPopup()">Chat</button>
 
       </ul>
 
       <div class="d-flex">
       <div class="mr-2">
-         
-      <%= link_to add_cards_path, class: 'btn btn-primary', role: 'button', style: 'position: relative;' do %>
+     
+      <%= link_to add_cards_path, class: 'btn btn-light mx-2', role: 'button', style: 'position: relative;' do %>
         <%= image_tag 'https://static.thenounproject.com/png/29852-200.png', alt: 'Logo', width: '40', height: '40' %>
         <% if user_signed_in? %>
-        <span style="position: absolute; top: 0; left: 0; color: red; padding: 5px; background-color: black; border-radius: 20%; font-weight: bold;">
+        <span style="position: absolute; top: 0; left: 0; color: red; padding: 5px; background-color: white; border-radius: 20%; font-weight: bold;">
         <%= current_user.add_cards.count %>
       </span>
       

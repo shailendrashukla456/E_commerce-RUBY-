@@ -2,6 +2,6 @@
   <%= form_for [@single_room, Message.new], remote: true, class: "d-flex" do |f| %>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= f.text_field :body, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off' %>
-    <%= f.submit data: { disable_with: false }, class: "btn btn-primary" %>
+    <%= f.submit data: { disable_with: false }, class: "btn btn-success"  %> 
   <% end %>
 </div>

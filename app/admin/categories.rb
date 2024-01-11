@@ -1,14 +1,18 @@
 ActiveAdmin.register Category do
 
  
-   permit_params :category_name, :picture
+   permit_params :category_name, :picture, :total_item
   
    index do
     selectable_column
     id_column
     column :category_name
+    
     column :picture do |category|
       image_tag(category.picture.url, height: '50') if category.picture.present?
+    end
+    column :total_item do |category|
+      category.subcategories.count
     end
     actions
   end
@@ -20,5 +24,8 @@ ActiveAdmin.register Category do
     end
     f.actions
   end
+
+
+
   
 end

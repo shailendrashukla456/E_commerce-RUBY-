@@ -1,0 +1,8 @@
+<div class="cont-<%= message.admin.id %>">
+ <div class="message-box msg-<% message.admin.id %>">
+    <% unless message.room.is_private %>
+      <h6 class="name"> <%= message.current_admin_user.email %> </h6>
+    <% end %>
+    <%= message %>
+  </div>
+</div>

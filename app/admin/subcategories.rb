@@ -30,4 +30,12 @@ ActiveAdmin.register Subcategory do
     end
     f.actions
   end
+
+  filter :subcategory_name
+filter :category, as: :select, collection: Category.pluck(:category_name, :id)
+filter :description
+filter :price
+
+  
+ 
 end
