@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, 
          :rememberable, 
          :validatable, 
-         :confirmable, 
+
          :trackable,
          :omniauthable, omniauth_providers: [:google_oauth2]
   
@@ -18,6 +18,10 @@ class User < ApplicationRecord
           end
         end
 
+        scope :all_except, ->(user) { where.not(id: user) }
+        after_create_commit { broadcast_append_to "users" }
+       
+        has_many :messages
         has_many :orders
         has_many :add_cards
       

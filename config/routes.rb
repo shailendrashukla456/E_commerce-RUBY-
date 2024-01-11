@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'rooms/index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -8,13 +9,19 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks' 
     
   }
+
+
+
  
   root 'categories#index'
+  get 'user/:id', to: 'users#show' , as: 'user'
   resources :add_cards
   resources :profile
 
   resources :orders 
-  
+  resources :rooms do
+    resources :messages
+  end
   resources :add_cards 
 
   resources :categories do
