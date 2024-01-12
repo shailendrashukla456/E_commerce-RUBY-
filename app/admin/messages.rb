@@ -4,7 +4,7 @@ ActiveAdmin.register Message do
   index do
     selectable_column
     id_column
-    column :admin_user
+    column :user
     column :room_id
     column :body
     actions
@@ -12,12 +12,8 @@ ActiveAdmin.register Message do
 
   form do |f|
     f.inputs 'Message Details' do
-      if current_admin_user
-        f.input :user, input_html: { value: current_admin_user.id }, as: :hidden
-        f.li "Posted by: #{current_admin_user.email}"
-      else
-        f.input :user
-      end
+     
+      f.input :user
       f.input :room, as: :select, collection: Room.all.map { |room| [room.name, room.id] }
       f.input :body
     end
