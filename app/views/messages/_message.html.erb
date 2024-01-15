@@ -1,12 +1,32 @@
-<div class="cont-<%= message.user.id %>">
-  <div class="message-box msg-<%= message.user.id %>">
-    <% unless message.room.is_private %>
-      <div class="message-header">
-        <h6 class="name"> <%= message.user.first_name %> </h6>
+
+
+<% if message.admin_user.present? %>
+    <div class="cont-<%= message.admin_user.id %>">
+      <div class="message-box msg-<%= message.admin_user.id %>">
+        <% unless message.room.is_private %>
+          <div class="message-header">
+            <h6 class="name"> <%= message.admin_user.email %> </h6>
+          </div>
+        <% end %>
+        <div class="message-body" style="color: black;">
+          <%= message.body %>
+        </div>
       </div>
-    <% end %>
-    <div class="message-body" style="color: black;">
-      <%= message.body %>
-    </div>
-  </div>
-</div>
+    </div>  
+
+<% elsif message.user.present?  %>
+
+    <div class="cont-<%= message.user.id %>">
+      <div class="message-box msg-<%= message.user.id %>">
+        <% unless message.room.is_private %>
+          <div class="message-header">
+            <h6 class="name"> <%= message.user.email %> </h6>
+          </div>
+        <% end %>
+        <div class="message-body" style="color: black;">
+          <%= message.body %>
+        </div>
+      </div>
+    </div>  
+         
+ <% end %>

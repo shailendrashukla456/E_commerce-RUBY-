@@ -12,7 +12,6 @@ class RoomsController < ApplicationController
     @single_room = Room.find(params[:id])
     @room = Room.new
     @rooms = Room.public_rooms
-    
     @message = Message.new
     @message =@single_room.messages.order(created_at: :asc)
     @messages = @single_room.messages
@@ -22,9 +21,5 @@ class RoomsController < ApplicationController
   
   
   end
-
-  def create
-    @room = Room.create(name: params["room"]["name"])
-  end
-
+  
 end
